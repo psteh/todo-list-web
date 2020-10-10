@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { getTodos, deleteTodo, updateTodo } from '../redux/Todos';
-import _ from 'lodash';
 import List from './List';
 
 const Todos = ({ todos = [] }) => {
@@ -46,10 +45,10 @@ const Todos = ({ todos = [] }) => {
                 <thead>
                     <tr>
                         <th>
-                            <a style={styles.cursor} onClick={() => sortData('task')}>To Do</a>
+                            <Button variant="link" style={styles.tableHeader} onClick={() => sortData('task')}>To Do</Button>
                         </th>
                         <th>
-                            <a style={styles.cursor} onClick={() => sortData('created_at')}>Created At</a>
+                            <Button variant="link" style={styles.cursor} onClick={() => sortData('created_at')}>Created At</Button>
                         </th>
                         <th></th>
                     </tr>
@@ -79,7 +78,7 @@ const styles = {
         paddingBottom: 20,
         float: 'right'
     },
-    cursor: {
+    tableHeader: {
         cursor: 'pointer'
     }
 }
