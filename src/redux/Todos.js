@@ -39,10 +39,12 @@ export const UPDATE_ACTION_THUNK = ({ id, task, done }) => {
                 task,
                 done,
             })
-            .then(
-                (resp) => dispatch(RESP_ACTION(resp.data)),
-                (error) => dispatch(RESP_ACTION(error.data))
-            );
+            .then((resp) => {
+                dispatch(RESP_ACTION(resp.data));
+            })
+            .catch((error) => {
+                dispatch(RESP_ACTION(error.reponse));
+            });
     };
 };
 
@@ -50,10 +52,12 @@ export const DELETE_ACTION_THUNK = ({ id }) => {
     return function (dispatch) {
         return axios
             .delete(`${process.env.REACT_APP_API_URL}/api/v1/todo?_id=${id}`)
-            .then(
-                (resp) => dispatch(RESP_ACTION(resp.data)),
-                (error) => dispatch(RESP_ACTION(error.data))
-            );
+            .then((resp) => {
+                dispatch(RESP_ACTION(resp.data));
+            })
+            .catch((error) => {
+                dispatch(RESP_ACTION(error.reponse));
+            });
     };
 };
 
