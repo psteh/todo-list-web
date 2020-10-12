@@ -18,6 +18,7 @@ npm run build
 Content for `.env`
 
 ```
-REACT_APP_API_URL= # domain URL to API server
+# domain URL to API server
+REACT_APP_API_URL=
 ```
 
